@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script src="js/script.js"></script>
+
+    <title>Penguins</title>
+</head>
+
+<body>
+    <div class="container">
+        <table class="table table-bordered table-hover table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Animal</th>
+                    <th scope="col">Favorite Food</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for (var x in results) { %>
+                <tr>
+                    <th scope="row">
+                        <%= results[x].type %>
+                    </th>
+                    <td><%= results[x].fav_food %></td>
+                    <td>
+                        <a class="border-right border-dark pr-1" href="/penguin/<%= results[x].id %>"><u>Show</u></a>
+                        <a class="border-right border-dark" href="/penguin/edit/<%= results[x].id %>"><u>Edit</u></a>
+                        <a href="/penguin/destroy/<%= results[x].id %>"><u>Delete</u></a>
+                    </td>
+                </tr>
+                <% } %>
+            </tbody>
+        </table>
+        <div class="row justify-content-center mt-5">
+            <a href="penguin/new" class="btn btn-primary">Add new species</a>
+        </div>
+    </div>
+</body>
+
+</html>

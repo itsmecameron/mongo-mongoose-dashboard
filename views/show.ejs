@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script src="js/script.js"></script>
+
+    <title>Show</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="container mt-3 border border-dark p-5 text-center rounded">
+            <% for(var i = 0 ; i < results.length ; i++){ %>
+            <p class="h3">Species: <%= results[i].type %> </p>
+            <p class="h3">Favorite Food: <%= results[i].fav_food %> </p>
+            <% } %>
+            <div class="row mt-5">
+                <a href="/" class="btn btn-primary">Home</a>
+                <a href="/penguin/edit/<%= results[0].id %>" class="btn btn-success ml-2 mr-2">Edit</a>
+                <a href="/penguin/destroy/<%= results[0].id %>" class="btn btn-danger">Delete</a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script src="js/script.js"></script>
+
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <!-- tip to easily see objects printed in full instead of [object Object] -->
+        <% JSON.stringify(messages) %>
+        <!-- based on the structure of your messages, determine how to display them -->
+        <% if(messages.reg) { %>
+        <% for (var x of messages.reg) { %>
+        <p class="text-danger"><%= x %></p>
+        <% } %>
+        <% } %>
+
+        <form action="/penguin/new/process" method="POST">
+            <div class="form-group">
+                <label>Name of Animal</label>
+                <input type="text" name="type" class="form-control" placeholder="Animal Name!">
+            </div>
+            <div class="form-group">
+                <label>Favorite Food</label>
+                <input type="text" name="fav_food" class="form-control" placeholder="Favorite Food!">
+            </div>
+            <input type="submit" class="btn btn-primary">
+        </form>
+    </div>
+
+</body>
+
+</html>
